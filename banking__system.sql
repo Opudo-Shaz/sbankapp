@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `banking__system`
@@ -39,10 +39,10 @@ CREATE TABLE `customer` (
   `city` varchar(255) NOT NULL,
   `pin_code` varchar(15) NOT NULL,
   `account_no` varchar(50) NOT NULL,
-  `aadhar_number` varchar(50) NOT NULL,
+  `ID_no` varchar(50) NOT NULL,
   `acount_balance` int(50) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer`
@@ -63,10 +63,10 @@ INSERT INTO `customer` (`id`, `name`, `gender`, `birthday`, `email`, `phone_no`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employe`
+-- Table structure for table `employee`
 --
 
-CREATE TABLE `employe` (
+CREATE TABLE `employee` (
   `id` int(11) NOT NULL,
   `employe_id` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -81,13 +81,13 @@ CREATE TABLE `employe` (
   `designation` varchar(255) NOT NULL,
   `salary` int(50) NOT NULL,
   `join_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `employe`
+-- Dumping data for table `employee`
 --
 
-INSERT INTO `employe` (`id`, `employe_id`, `name`, `gender`, `email_id`, `birthday`, `phone_no`, `state`, `district`, `city`, `pin_code`, `designation`, `salary`, `join_date`) VALUES
+INSERT INTO `employee` (`id`, `employe_id`, `name`, `gender`, `email_id`, `birthday`, `phone_no`, `state`, `district`, `city`, `pin_code`, `designation`, `salary`, `join_date`) VALUES
 (1, 'EM00001', 'Kirti Patil', 'Female', 'kirtipatil@gmail.com', '2000-05-11', '1234567890', 'Maharashtra', 'Jalgaon', 'Jalgaon', 425444, 'Accountant ', 50000, '2021-10-06 12:29:06');
 
 -- --------------------------------------------------------
@@ -104,7 +104,7 @@ CREATE TABLE `transaction` (
   `amount` int(15) NOT NULL,
   `transfer_by` int(50) NOT NULL,
   `transaction_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `transaction`
@@ -133,7 +133,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `type` tinyint(4) NOT NULL,
   `last_login` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
@@ -141,7 +141,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `usename`, `password`, `type`, `last_login`) VALUES
 (1, 'Spark Foundation Bank', 'admin', 0, '2021-10-06 10:52:57'),
-(2, 'EM00001', '1234567890', 1, '2021-10-06 12:29:06');
+(2, 'EM00001', '1234567890', 1, '2021-10-06 12:29:06')
+(3, 'EM00002', '1234567891', 1, '2021-10-06 12:29:06');
 
 --
 -- Indexes for dumped tables
@@ -156,7 +157,7 @@ ALTER TABLE `customer`
 --
 -- Indexes for table `employe`
 --
-ALTER TABLE `employe`
+ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -184,7 +185,7 @@ ALTER TABLE `customer`
 --
 -- AUTO_INCREMENT for table `employe`
 --
-ALTER TABLE `employe`
+ALTER TABLE `employee`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

@@ -14,8 +14,8 @@
     <div class="container-fluid" id="<?php echo $nav_id; ?>">
         <nav class="d-flex">
             <div class="nav__brand">
-                <a href="<?php echo SITE__PATH; ?>/index.php?type=home"><img src="<?php echo SITE__PATH; ?>/assets/logo.png" alt="logo"/>
-                <span>Spark Foundation Bank </span></a>
+                <a href="<?php echo SITE__PATH; ?>/index.php?type=home"><img src="<?php echo SITE__PATH; ?>/assets/images/logo.png" alt="logo"/>
+                <span>Smart Bank</span></a>
             </div>
             <div class="toggle">
              <i class="fas fa-bars"></i>
@@ -29,7 +29,7 @@
                             <a href="<?php echo SITE__PATH; ?>/index.php">Home</a>
                         </li>
                         <li>
-                            <a href="https://pruthviraj-rajput-portfolio.rf.gd">About</a>
+                            <a href="https://pruthviraj-rajput-portfolio.rf.gd">About Us</a>
                         </li>
                         <li>
                             <a href="<?php echo SITE__PATH; ?>/pages/Login.php?type=n">Login</a>
@@ -43,7 +43,7 @@
                                 <a href="<?php echo SITE__PATH; ?>/pages/New__Customer.php?type=n">Add Customer</a>
                             </li>
                             <li>
-                                <a href="<?php echo SITE__PATH; ?>/pages/New__Employe.php?type=n">Add Employe</a>
+                                <a href="<?php echo SITE__PATH; ?>/pages/New__Employee.php?type=n">Add Employee</a>
                             </li>
                             <li>
                                 <a href="<?php echo SITE__PATH; ?>/pages/Customers.php?type=n">All Customers</a>
@@ -52,10 +52,10 @@
                                 <a href="<?php echo SITE__PATH; ?>/pages/Employes_Detailes.php?type=n">All Employes</a>
                             </li>
                             <li>
-                                <a href="<?php echo SITE__PATH; ?>/pages/All__Transction__History.php?type=n">All Transaction</a>
+                                <a href="<?php echo SITE__PATH; ?>/pages/All__Transction__History.php?type=n">All Transactions</a>
                             </li> 
                             <li>
-                                <a href="<?php echo SITE__PATH; ?>/pages/Transaction.php?type=n">Transaction</a>
+                                <a href="<?php echo SITE__PATH; ?>/pages/Transaction.php?type=n">Transactions</a>
                             </li>
                             <li>
                                 <a href="<?php echo SITE__PATH; ?>/components/Logout.php">Logout</a>
@@ -68,14 +68,14 @@
                                 <a href="<?php echo SITE__PATH; ?>/pages/Customers.php?type=n">All Customers</a>
                             </li>
                             <li>
-                                <a href="<?php echo SITE__PATH; ?>/pages/Transaction.php?type=n">Transaction</a>
+                                <a href="<?php echo SITE__PATH; ?>/pages/Transaction.php?type=n">Transactions</a>
                             </li>
                             <?php  
                                 $euser = $_SESSION['USER_NAME'];
-                                $employe_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employe WHERE employe_id = '$euser'"));
+                                $employe_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE employee_id = '$euser'"));
                             ?>
                             <li>
-                                <a href="<?php echo SITE__PATH; ?>/pages/New__Employe.php?type=n&id=<?php echo $employe_id['id']?>&option=view">Profile</a>
+                                <a href="<?php echo SITE__PATH; ?>/pages/New__Employee.php?type=n&id=<?php echo $employee_id['id']?>&option=view">Profile</a>
                             </li>
                             <li>
                                 <a href="<?php echo SITE__PATH; ?>/components/Logout.php">Logout</a>

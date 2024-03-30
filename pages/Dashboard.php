@@ -13,10 +13,10 @@
         $sql = mysqli_query($con,"SELECT * FROM customer");
         $total_customers = mysqli_num_rows($sql);
 
-        $sql_em = mysqli_query($con,"SELECT * FROM employe");
-        $total_employes = mysqli_num_rows($sql_em);
-        if($total_employes < 10){
-            $total_employes = '0'.$total_employes;
+        $sql_em = mysqli_query($con,"SELECT * FROM employee");
+        $total_employees = mysqli_num_rows($sql_em);
+        if($total_employees < 10){
+            $total_employees = '0'.$total_employees;
         }
         
         $balance = mysqli_query($con,"SELECT SUM(acount_balance) AS value_sum FROM customer");
@@ -41,10 +41,38 @@
                     <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
                         <div class="card-body text-center">
                             <h4 class="card-title text-uppercase text-primary">Total Employees</h4>
-                            <h1 class="card-text text-success"><?php echo $total_employes; ?></h1>
+                            <h1 class="card-text text-success"><?php echo $total_employees; ?></h1>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-xl-4">
+                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-uppercase text-primary">Total Deposits</h4>
+                            <h1 class="card-text text-success"><?php echo $total_deposits; ?></h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-uppercase text-primary">Total Withdwals</h4>
+                            <h1 class="card-text text-success"><?php echo $total_withdrwals; ?></h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-uppercase text-primary">Total Transfers</h4>
+                            <h1 class="card-text text-success"><?php echo $total_transfers; ?></h1>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-xl-4">
                     <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
                         <div class="card-body text-center">

@@ -73,7 +73,7 @@
                                         echo date('d-m-Y',$dateStr);
                                     ?>
                                 </td>
-                                <td><?php echo $transacton_by['usename']; ?></td>
+                                <td><?php echo $transacton_by['username']; ?></td>
                                 <td class="d-flex justify-content-around">
                                     <a href="New__Customer.php?type=n&id=<?php echo $row['customer_ac']?>&option=view"><i class="far fa-eye text-primary"></i></a>
                                 </td>

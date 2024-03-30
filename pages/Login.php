@@ -42,7 +42,7 @@
             <?php echo $msg ?>
             <div class="row text-center">
                 <h3>Welcome !</h3>
-                <h3>Spark Foundation Bank</h3>
+                <h3>Smart Bank</h3>
                 <p>Please Login Now</p>
             </div>
             <div class="row justify-content-center">

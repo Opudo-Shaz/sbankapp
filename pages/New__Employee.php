@@ -45,7 +45,7 @@
             }
 
             if($option == 'view' || $option == 'edit'){
-                $res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employe WHERE id = $id"));
+                $res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE id = $id"));
                 $employe_id	 = $res["employe_id"];
                 $name = $res["name"];
                 $gender = $res["gender"];
@@ -60,18 +60,18 @@
                 $salary = $res["salary"];
             }else{
                 // ==========Genrate Id Number===========
-                    $sql_id = mysqli_query($con,"SELECT employe_id FROM employe ORDER BY id DESC LIMIT 1");
+                    $sql_id = mysqli_query($con,"SELECT employee_id FROM employee ORDER BY id DESC LIMIT 1");
                     $checked_id = mysqli_fetch_assoc($sql_id);
 
                     if(mysqli_num_rows($sql_id)>0){
-                        $prives_id = $checked_id['employe_id'];
+                        $prives_id = $checked_id['employee_id'];
                         $get_id = str_replace("EM", "", $prives_id);
                         $id_incrase = $get_id+1;
                         $get_id_string = str_pad($id_incrase, 5,0, STR_PAD_LEFT);
 
-                        $employe_id = "EM".$get_id_string;
+                        $employee_id = "EM".$get_id_string;
                     }else{
-                        $employe_id = "EM00001";
+                        $employee_id = "EM00001";
                     }
                 // ======X===Genrate Id Number===X=======
             }
@@ -92,7 +92,7 @@
     // =========X===Get Massege Here===X=======
 
     // ========= Send Records Functionality ========
-        if(isset($_POST['add_employe'])){
+        if(isset($_POST['add_employee'])){
             $name = mysqli_escape_string($con,$_POST['name']);
             $gender = mysqli_escape_string($con,$_POST['gender']);
             $birthday = mysqli_escape_string($con,$_POST['birthday']);
@@ -107,17 +107,17 @@
             $salary = mysqli_escape_string($con,$_POST['salary']);
 
             if($option == ''){
-                mysqli_query($con,"INSERT  INTO employe (employe_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
+                mysqli_query($con,"INSERT  INTO employee (employee_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
 
                 mysqli_query($con,"INSERT INTO users (usename,password,type) VALUES ('$employe_id','$phone_no',1)");
     
-                echo "<script>window.location='New__Employe.php?type=n&msg=msg'</script>";
+                echo "<script>window.location='New__Employee.php?type=n&msg=msg'</script>";
             }else{
-                mysqli_query($con,"UPDATE employe SET employe_id='$employe_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
+                mysqli_query($con,"UPDATE employee SET employee_id='$employe_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
 
-                mysqli_query($con,"UPDATE users SET username='$employe_id',password='$phone_no',type='1' WHERE username = '$employe_id'");
+                mysqli_query($con,"UPDATE users SET username='$employee_id',password='$phone_no',type='1' WHERE username = '$employee_id'");
 
-                echo "<script>window.location='Employes_Detailes.php?type=n&msg=msg'</script>";
+                echo "<script>window.location='Employees_Detailes.php?type=n&msg=msg'</script>";
             }
         }
     // ======X=== Send Records Functionality ===X===
@@ -135,12 +135,12 @@
                         ";
                     }else if ($option == 'edit'){
                         echo "
-                            <h2>Edit Employe Details</h2>
+                            <h2>Edit Employee Details</h2>
                             <p><span class='text-primary'>$name</span> Edit Detailes Here...</p>
                         ";
                     }else{
                         echo "
-                            <h2>Add Employe</h2>
+                            <h2>Add Employee</h2>
                             <p>Add Employe Details Here</p>
                         ";
                     }
@@ -148,8 +148,8 @@
             </div>
             <form method="post" action="" class="row g-3 mt-2 mb-2">
                 <div class="col-md-4">
-                    <label for="inputAddress" class="form-label">Employe Id</label>
-                    <input type="text" disabled value="<?php echo $employe_id; ?>" class="form-control text-primary" id="inputAddress" name="employe_id" required>
+                    <label for="inputAddress" class="form-label">Employee Id</label>
+                    <input type="text" disabled value="<?php echo $employee_id; ?>" class="form-control text-primary" id="inputAddress" name="employe_id" required>
                 </div>
                 <div class="col-md-4">
                     <label for="inputAddress" class="form-label">Designation</label>
@@ -160,7 +160,7 @@
                     <input <?php echo $disabled; ?> type="text" value="<?php echo $salary ?>" class="form-control" id="inputAddress" name="salary" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Employe Name</label>
+                    <label for="inputEmail4" class="form-label">Employee Name</label>
                     <input <?php echo $disabled; ?> type="text" value="<?php echo $name ?>" name="name" class="form-control" id="inputEmail4" required>
                 </div>
                 <div class="col-md-6">
@@ -222,12 +222,12 @@
 
                 <?php }else{ ?>
                     <div class="col-12 text-center">
-                        <button type="submit" name="add_employe" class="btn btn-primary">
+                        <button type="submit" name="add_employee" class="btn btn-primary">
                             <?php
                                 if($option == 'edit'){
-                                    echo 'Edit Employe Detailes';
+                                    echo 'Edit Employee Detailes';
                                 }else{
-                                    echo 'Add Employe';
+                                    echo 'Add Employee';
                                 }
                             ?>
                         </button>

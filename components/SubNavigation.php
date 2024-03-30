@@ -18,7 +18,7 @@
     <div class="container" id="transaction">
         <div class="row text-center">
                 <h2>Transaction</h2>
-                <p>Select Tab And Proside To Transaction</p>
+                <p>Select Type And proceed To Transact</p>
             </div>
         <div class="row">
             <div class="col-xl-12 mt-2">

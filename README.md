@@ -14,7 +14,7 @@ username => `EM00001`
 
 password => `1234567890`
 
-I have developed  basic banking system web application as a web development intern in Spark Foundation I have used HTMl, CSS, JavaScript and PHP database as a MySQL.
+I have developed  basic banking system web application as a web development Student in Multimedia University of Kenya I have used HTMl, CSS, JavaScript and PHP database as a MySQL.
 
 --------
 ## Technology Used
@@ -33,7 +33,7 @@ I have developed  basic banking system web application as a web development inte
 
 #### 1. `MySQL Database`
    
-### Fream Work  
+### Frame Work  
 
 #### 1. `Boostrap`
     
@@ -82,3 +82,4 @@ Make Transaction Page
 
 
 ### THANK YOU !!!
+# sbankapp

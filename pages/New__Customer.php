@@ -18,7 +18,7 @@
         $pin_code = "";
         $account_no = "";
         $acount_balance = 200;
-        $aadhar_number = "";
+        $ID_number = "";
 
         $checked_ac = "";
         $ac_number = "";
@@ -56,7 +56,7 @@
                 $pin_code = $res["pin_code"];
                 $ac_number = $res["account_no"];
                 $acount_balance = $res["acount_balance"];
-                $aadhar_number = $res["aadhar_number"];
+                $ID_number = $res["ID_number"];
             }else{
                 // ==========Genrate Account Number===========
                     $sql_ac = mysqli_query($con,"SELECT account_no FROM customer ORDER BY id DESC LIMIT 1");
@@ -103,22 +103,22 @@
             $pin_code =mysqli_escape_string($con,$_POST['pin_code']);
             $account_no = $ac_number;
             $acount_balance = mysqli_escape_string($con,$_POST['account_balance']);
-            $aadhar_number = mysqli_escape_string($con,$_POST['aadhar_number']);
+            $ID_number = mysqli_escape_string($con,$_POST['ID_number']);
 
-            $sql_fetch = mysqli_query($con,"SELECT * FROM customer WHERE aadhar_number = '$aadhar_number'");
+            $sql_fetch = mysqli_query($con,"SELECT * FROM customer WHERE ID_number = '$ID_number'");
             if($option == ''){
                 if(mysqli_num_rows($sql_fetch)>0){
                     $msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                        <strong>Ooop!</strong> Cusstomer Account Alrady Exist! Because Addhar Number is Alrady Linked.
+                        <strong>Ooop!</strong> Cusstomer Account Alrady Exist! Because Account Number is Alrady Linked.
                         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                     </div>";
                 }else{
-                    mysqli_query($con,"INSERT  INTO customer (name,gender,birthday,email,phone_no,state,district,city,pin_code,account_no,aadhar_number,acount_balance) VALUES ('$name','$gender',' $birthday','$email','$phone_no','$state','$district','$city','$pin_code','$account_no','$aadhar_number','$acount_balance')");
+                    mysqli_query($con,"INSERT  INTO customer (name,gender,birthday,email,phone_no,state,district,city,pin_code,account_no,ID_number,acount_balance) VALUES ('$name','$gender',' $birthday','$email','$phone_no','$state','$district','$city','$pin_code','$account_no','$acount_balance')");
 
                     echo "<script>window.location='New__Customer.php?type=n&msg=msg'</script>";
                 }
             }else{
-                mysqli_query($con,"UPDATE customer SET name='$name',gender='$gender',birthday='$birthday',email='$email',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',account_no='$account_no',aadhar_number='$aadhar_number',acount_balance='$acount_balance' WHERE account_no = '$id'");
+                mysqli_query($con,"UPDATE customer SET name='$name',gender='$gender',birthday='$birthday',email='$email',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',account_no='$account_no',ID_number='$ID_number',acount_balance='$acount_balance' WHERE account_no = '$id'");
            
                 echo "<script>window.location='Customers.php?type=n&msg=msg'</script>";
             }
@@ -126,7 +126,7 @@
         }
     // ======X=== Send Records Functionality ===X===
 ?>
-    <!-- ------------Employe Form---------------- -->
+    <!-- ------------Employee Form---------------- -->
         <?php include '../components/User_Name.php' ?>
         <?php echo $msg;?>
         <div class="container" id="add_page">
@@ -156,8 +156,8 @@
                     <input type="text" disabled value="<?php echo  $ac_number; ?>" class="form-control text-primary" id="inputAddress" name="employe_id" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="inputAddress" class="form-label">Aadhar Number</label>
-                    <input <?php echo $disabled; ?> type="text" class="form-control" value="<?php echo $aadhar_number ?>" id="inputAddress" name="aadhar_number" required>
+                    <label for="inputAddress" class="form-label">ID Number</label>
+                    <input <?php echo $disabled; ?> type="text" class="form-control" value="<?php echo $ID_number ?>" id="inputAddress" name="ID_number" required>
                 </div>
                 <div class="col-md-4">
                     <label for="inputAddress" class="form-label">Account Balance</label>
@@ -181,12 +181,12 @@
                                     echo "
                                     <option value= '$gender' selected>$gender</option>
                                     <option value='Male'>Male</option>
-                                    <option value='Female'>Femail</option>";
+                                    <option value='Female'>Female</option>";
                                 }else{
                                     echo "
                                         <option value= '' selected>Select Gender</option>
                                         <option value='Male'>Male</option>
-                                        <option value='Female'>Femail</option>
+                                        <option value='Female'>Female</option>
                                     ";
                                 }   
                             ?>

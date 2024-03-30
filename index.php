@@ -16,7 +16,7 @@
            <div class="row">
                <div class="col-12 text-center">
                     <h2>Welcome to the</h2>
-                    <h1>Spark Foundation Bank</h1>
+                    <h1>Smart Bank Internet Banking System</h1>
                     <a href="<?php echo SITE__PATH; ?>/pages/Login.php?type=n"><button class="btn">Login Now</button></a>
                </div>
            </div>
