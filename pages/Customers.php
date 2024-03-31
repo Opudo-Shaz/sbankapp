@@ -106,5 +106,7 @@
         </div>
     <!--X- Display Customer Table -X-->
 <?php
+    
     include '../components/Footer.php';
+    
 ?>

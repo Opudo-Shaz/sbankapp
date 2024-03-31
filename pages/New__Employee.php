@@ -1,9 +1,13 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
     include '../components/Navigation__Bar.php';
     // ===========Condition==============
-        if(!isset($_SESSION['IS_LOGGIN'])){
-            echo "<script>window.location='Login.php?type=n'</script>";
-        }
+    if(!isset($_SESSION['IS_LOGGED_IN'])){
+        echo "<script>window.location='Login.php?type=n'</script>";
+    }
+    
     // ========X===Condition===x=========
 
     //=========== Variable Declreation ==========
@@ -20,7 +24,7 @@
         $salary = "";
 
         $checked_id = "";
-        $employe_id	 = "";
+        $employee_id	 = "";
 
         $msg = "";
         $msg_get ="";
@@ -46,7 +50,7 @@
 
             if($option == 'view' || $option == 'edit'){
                 $res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE id = $id"));
-                $employe_id	 = $res["employe_id"];
+                $employe_id	 = $res["employee_id"];
                 $name = $res["name"];
                 $gender = $res["gender"];
                 $birthday = $res["birthday"];
@@ -84,7 +88,7 @@
             if($msg_get == "msg"){
                 $msg = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                     <h4 class='alert-heading'>Well done!</h4>
-                    <strong>Employe Detailes Added Successfully</strong>
+                    <strong>Employee Detailes Added Successfully</strong>
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                 </div>";
             }
@@ -102,18 +106,18 @@
             $district = mysqli_escape_string($con,$_POST['district']);
             $city = mysqli_escape_string($con,$_POST['city']);
             $pin_code =mysqli_escape_string($con,$_POST['pin_code']);
-            $employe_id = $employe_id;
+            $employee_id = $employee_id;
             $designation = mysqli_escape_string($con,$_POST['designation']);
             $salary = mysqli_escape_string($con,$_POST['salary']);
 
             if($option == ''){
-                mysqli_query($con,"INSERT  INTO employee (employee_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
+                mysqli_query($con,"INSERT  INTO employee (employee_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employee_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
 
-                mysqli_query($con,"INSERT INTO users (usename,password,type) VALUES ('$employe_id','$phone_no',1)");
+                mysqli_query($con,"INSERT INTO users (usename,password,type) VALUES ('$employee_id','$phone_no',1)");
     
                 echo "<script>window.location='New__Employee.php?type=n&msg=msg'</script>";
             }else{
-                mysqli_query($con,"UPDATE employee SET employee_id='$employe_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
+                mysqli_query($con,"UPDATE employee SET employee_id='$employee_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
 
                 mysqli_query($con,"UPDATE users SET username='$employee_id',password='$phone_no',type='1' WHERE username = '$employee_id'");
 
@@ -122,7 +126,7 @@
         }
     // ======X=== Send Records Functionality ===X===
 ?>
-    <!-- ------------Employe Form---------------- -->
+    <!-- ------------Employee Form---------------- -->
         <?php include '../components/User_Name.php' ?>
         <?php echo $msg;?>
         <div class="container" id="add_page">
@@ -130,7 +134,7 @@
                 <?php 
                     if($option == 'view'){
                         echo "
-                            <h2>View Employe Detailes</h2>
+                            <h2>View Employee Detailes</h2>
                             <p><span class='text-primary'>$name</span> Detailes Here...</p>
                         ";
                     }else if ($option == 'edit'){
@@ -141,7 +145,7 @@
                     }else{
                         echo "
                             <h2>Add Employee</h2>
-                            <p>Add Employe Details Here</p>
+                            <p>Add Employee Details Here</p>
                         ";
                     }
                 ?>
@@ -149,7 +153,7 @@
             <form method="post" action="" class="row g-3 mt-2 mb-2">
                 <div class="col-md-4">
                     <label for="inputAddress" class="form-label">Employee Id</label>
-                    <input type="text" disabled value="<?php echo $employee_id; ?>" class="form-control text-primary" id="inputAddress" name="employe_id" required>
+                    <input type="text" disabled value="<?php echo $employee_id; ?>" class="form-control text-primary" id="inputAddress" name="employee_id" required>
                 </div>
                 <div class="col-md-4">
                     <label for="inputAddress" class="form-label">Designation</label>
@@ -177,12 +181,12 @@
                                     echo "
                                     <option value= '$gender' selected>$gender</option>
                                     <option value='Male'>Male</option>
-                                    <option value='Female'>Femail</option>";
+                                    <option value='Female'>Female</option>";
                                 }else{
                                     echo "
                                         <option value= '' selected>Select Gender</option>
                                         <option value='Male'>Male</option>
-                                        <option value='Female'>Femail</option>
+                                        <option value='Female'>Female</option>
                                     ";
                                 }   
                             ?>
@@ -235,7 +239,7 @@
                 <?php } ?>
             </form>
         </div>
-    <!-- ---------X---Employe Form---X------------- -->
+    <!-- ---------X---Employee Form---X------------- -->
 <?php
     include '../components/Footer.php';
 ?>

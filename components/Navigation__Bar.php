@@ -29,7 +29,7 @@
                             <a href="<?php echo SITE__PATH; ?>/index.php">Home</a>
                         </li>
                         <li>
-                            <a href="https://pruthviraj-rajput-portfolio.rf.gd">About Us</a>
+                            <a href="<?php echo SITE__PATH; ?>/pages/AboutUs.php?type=n">About Us</a>
                         </li>
                         <li>
                             <a href="<?php echo SITE__PATH; ?>/pages/Login.php?type=n">Login</a>
@@ -49,7 +49,7 @@
                                 <a href="<?php echo SITE__PATH; ?>/pages/Customers.php?type=n">All Customers</a>
                             </li>
                             <li>
-                                <a href="<?php echo SITE__PATH; ?>/pages/Employes_Detailes.php?type=n">All Employes</a>
+                                <a href="<?php echo SITE__PATH; ?>/pages/Employees_Detailes.php?type=n">All Employees</a>
                             </li>
                             <li>
                                 <a href="<?php echo SITE__PATH; ?>/pages/All__Transction__History.php?type=n">All Transactions</a>

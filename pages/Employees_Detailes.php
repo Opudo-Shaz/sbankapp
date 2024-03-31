@@ -45,8 +45,8 @@
         <?php echo $msg;?>
         <div class="container" id="display_record">
             <div class="row text-center">
-                <h2>All Employes</h2>
-                <p>All Employes Details Here</p>
+                <h2>All Employees</h2>
+                <p>All Employees Details Here</p>
             </div>
             <div class="table-responsive mt-2">
                 <table class="table table-striped table-hover table-bordered">
