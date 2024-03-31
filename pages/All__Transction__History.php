@@ -54,7 +54,7 @@
                             <th width="20%" scope="col">Transfer Account Number</th>
                             <th width="10%" scope="col">Amount</th>
                             <th width="20%" scope="col">Transaction Date</th>
-                            <th width="10%" scope="col">Transaction By</th>
+                            <th width="10%" scope="col">Transacted By</th>
                             <th width="10%" scope="col">Action</th>
                         </tr>
                     </thead>

@@ -2,7 +2,7 @@
    include '../components/Navigation__Bar.php';
 
    // Check session variable for login
-   if (!isset($_SESSION['IS_LOGGED_IN'])) {
+   if (!isset($_SESSION['IS_LOGGIN'])) {
        echo "<script>window.location='Login.php?type=n'</script>";
    }
 
@@ -82,7 +82,7 @@
                         ?>
                             <tr>
                                 <th scope="row" class="text-primary"><?php echo $row['account_no']; ?></th>
-                                <th scope="row" class="text-success"><?php echo  $row['ID_number']; ?></th>
+                                <th scope="row" class="text-success"><?php echo  $row['id_number']; ?></th>
                                 <td><?php echo $row['acount_balance']?> &#8377;</td>
                                 <td><?php echo $row['name']?></td>
                                 <td><?php echo $row['gender']?></td>

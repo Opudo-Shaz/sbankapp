@@ -1,10 +1,11 @@
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
-
+?>
+<?php
     include '../components/Navigation__Bar.php';
     // ===========Condition==============
-    if(!isset($_SESSION['IS_LOGGED_IN'])){
+    if(!isset($_SESSION['IS_LOGGIN'])){
         echo "<script>window.location='Login.php?type=n'</script>";
     }
     
@@ -64,11 +65,11 @@
                 $salary = $res["salary"];
             }else{
                 // ==========Genrate Id Number===========
-                    $sql_id = mysqli_query($con,"SELECT employee_id FROM employee ORDER BY id DESC LIMIT 1");
+                    $sql_id = mysqli_query($con,"SELECT id FROM employee ORDER BY id DESC LIMIT 1");
                     $checked_id = mysqli_fetch_assoc($sql_id);
 
                     if(mysqli_num_rows($sql_id)>0){
-                        $prives_id = $checked_id['employee_id'];
+                        $prives_id = $checked_id['id'];
                         $get_id = str_replace("EM", "", $prives_id);
                         $id_incrase = $get_id+1;
                         $get_id_string = str_pad($id_incrase, 5,0, STR_PAD_LEFT);
@@ -111,13 +112,13 @@
             $salary = mysqli_escape_string($con,$_POST['salary']);
 
             if($option == ''){
-                mysqli_query($con,"INSERT  INTO employee (employee_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employee_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
+                mysqli_query($con,"INSERT  INTO employee (id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employee_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
 
                 mysqli_query($con,"INSERT INTO users (usename,password,type) VALUES ('$employee_id','$phone_no',1)");
     
                 echo "<script>window.location='New__Employee.php?type=n&msg=msg'</script>";
             }else{
-                mysqli_query($con,"UPDATE employee SET employee_id='$employee_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
+                mysqli_query($con,"UPDATE employee SET id='$employee_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
 
                 mysqli_query($con,"UPDATE users SET username='$employee_id',password='$phone_no',type='1' WHERE username = '$employee_id'");
 

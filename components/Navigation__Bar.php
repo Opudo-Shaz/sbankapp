@@ -1,4 +1,11 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
+
+
+<?php
     include 'Top.php';
     // Coding For Navigation Bar Background Color
         $nav_id = 'navbar';
@@ -72,7 +79,7 @@
                             </li>
                             <?php  
                                 $euser = $_SESSION['USER_NAME'];
-                                $employe_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE employee_id = '$euser'"));
+                                $employee_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE id = '$euser'"));
                             ?>
                             <li>
                                 <a href="<?php echo SITE__PATH; ?>/pages/New__Employee.php?type=n&id=<?php echo $employee_id['id']?>&option=view">Profile</a>

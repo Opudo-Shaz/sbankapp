@@ -29,7 +29,7 @@
             $option = mysqli_escape_string($con,$_GET['option']);
 
             if($option == 'delete'){
-                mysqli_query($con,"DELETE FROM employee WHERE employee_id = '$id'");
+                mysqli_query($con,"DELETE FROM employee WHERE id = '$id'");
                 mysqli_query($con,"DELETE FROM users WHERE usename = '$id'");
                 echo "<script>window.location='Employes_Detailes.php?type=n'</script>";
             }
@@ -66,7 +66,7 @@
                             while ($row = mysqli_fetch_assoc($sql)){
                         ?>
                             <tr>
-                                <th scope="row" class="text-primary"><?php echo $row['employee_id']; ?></th>
+                                <th scope="row" class="text-primary"><?php echo $row['id']; ?></th>
                                 <th scope="row" class="text-success"><?php echo  $row['designation']; ?></th>
                                 <td><?php echo $row['salary']?></td>
                                 <td><?php echo $row['name']?></td>
@@ -78,7 +78,7 @@
                                 <td class="d-flex justify-content-around">
                                     <a href="New__Employe.php?type=n&id=<?php echo $row['id']?>&option=view"><i class="far fa-eye text-primary"></i></a>
                                     <a href="New__Employe.php?type=n&id=<?php echo $row['id']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
-                                    <a href="?type=n&id=<?php echo $row['employee_id']?>&option=delete"><i class="fas fa-trash text-danger"></i></a>
+                                    <a href="?type=n&id=<?php echo $row['id']?>&option=delete"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

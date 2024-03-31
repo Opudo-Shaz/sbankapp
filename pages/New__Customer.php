@@ -1,10 +1,17 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
+
+<?php
     include '../components/Navigation__Bar.php';
     // ===========Condition==============
         if(!isset($_SESSION['IS_LOGGIN'])){
             echo "<script>window.location='Login.php?type=n'</script>";
         }
     // ========X===Condition===x=========
+
 
     //=========== Variable Declreation ==========
         $name = "";
@@ -18,7 +25,7 @@
         $pin_code = "";
         $account_no = "";
         $acount_balance = 200;
-        $ID_number = "";
+        $id_number = "";
 
         $checked_ac = "";
         $ac_number = "";
@@ -56,7 +63,7 @@
                 $pin_code = $res["pin_code"];
                 $ac_number = $res["account_no"];
                 $acount_balance = $res["acount_balance"];
-                $ID_number = $res["ID_number"];
+                $id_number = $res["id_number"];
             }else{
                 // ==========Genrate Account Number===========
                     $sql_ac = mysqli_query($con,"SELECT account_no FROM customer ORDER BY id DESC LIMIT 1");
@@ -103,22 +110,22 @@
             $pin_code =mysqli_escape_string($con,$_POST['pin_code']);
             $account_no = $ac_number;
             $acount_balance = mysqli_escape_string($con,$_POST['account_balance']);
-            $ID_number = mysqli_escape_string($con,$_POST['ID_number']);
+            $id_number = mysqli_escape_string($con,$_POST['id_number']);
 
-            $sql_fetch = mysqli_query($con,"SELECT * FROM customer WHERE ID_number = '$ID_number'");
+            $sql_fetch = mysqli_query($con,"SELECT * FROM customer WHERE id_number = '$id_number'");
             if($option == ''){
                 if(mysqli_num_rows($sql_fetch)>0){
                     $msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                        <strong>Ooop!</strong> Cusstomer Account Alrady Exist! Because Account Number is Alrady Linked.
+                        <strong>Ooop!</strong> Customer Account Alrady Exist! Because Account Number is Alrady Linked.
                         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                     </div>";
                 }else{
-                    mysqli_query($con,"INSERT  INTO customer (name,gender,birthday,email,phone_no,state,district,city,pin_code,account_no,ID_number,acount_balance) VALUES ('$name','$gender',' $birthday','$email','$phone_no','$state','$district','$city','$pin_code','$account_no','$acount_balance')");
+                    mysqli_query($con,"INSERT  INTO customer (name,gender,birthday,email,phone_no,state,district,city,pin_code,account_no,id_number,acount_balance) VALUES ('$name','$gender',' $birthday','$email','$phone_no','$state','$district','$city','$pin_code','$account_no','id_number','$acount_balance')");
 
                     echo "<script>window.location='New__Customer.php?type=n&msg=msg'</script>";
                 }
             }else{
-                mysqli_query($con,"UPDATE customer SET name='$name',gender='$gender',birthday='$birthday',email='$email',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',account_no='$account_no',ID_number='$ID_number',acount_balance='$acount_balance' WHERE account_no = '$id'");
+                mysqli_query($con,"UPDATE customer SET name='$name',gender='$gender',birthday='$birthday',email='$email',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',account_no='$account_no',id_number='$id_number',acount_balance='$acount_balance' WHERE account_no = '$id'");
            
                 echo "<script>window.location='Customers.php?type=n&msg=msg'</script>";
             }
@@ -157,7 +164,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputAddress" class="form-label">ID Number</label>
-                    <input <?php echo $disabled; ?> type="text" class="form-control" value="<?php echo $ID_number ?>" id="inputAddress" name="ID_number" required>
+                    <input <?php echo $disabled; ?> type="text" class="form-control" value="<?php echo $id_number ?>" id="inputAddress" name="id_number" required>
                 </div>
                 <div class="col-md-4">
                     <label for="inputAddress" class="form-label">Account Balance</label>
