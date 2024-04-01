@@ -31,7 +31,7 @@
             if($option == 'delete'){
                 mysqli_query($con,"DELETE FROM employee WHERE id = '$id'");
                 mysqli_query($con,"DELETE FROM users WHERE usename = '$id'");
-                echo "<script>window.location='Employes_Detailes.php?type=n'</script>";
+                echo "<script>window.location='Employees_Detailes.php?type=n'</script>";
             }
         }
     // =======X===Delete Functionality===X======
@@ -76,8 +76,8 @@
                                         echo date('d-m-Y',$dateStr);
                                     ?></td>
                                 <td class="d-flex justify-content-around">
-                                    <a href="New__Employe.php?type=n&id=<?php echo $row['id']?>&option=view"><i class="far fa-eye text-primary"></i></a>
-                                    <a href="New__Employe.php?type=n&id=<?php echo $row['id']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
+                                    <a href="New__Employee.php?type=n&id=<?php echo $row['id']?>&option=view"><i class="far fa-eye text-primary"></i></a>
+                                    <a href="New__Employee.php?type=n&id=<?php echo $row['id']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
                                     <a href="?type=n&id=<?php echo $row['id']?>&option=delete"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
                             </tr>

@@ -21,7 +21,7 @@ ini_set('display_errors', 1);
     <div class="container-fluid" id="<?php echo $nav_id; ?>">
         <nav class="d-flex">
             <div class="nav__brand">
-                <a href="<?php echo SITE__PATH; ?>/index.php?type=home"><img src="<?php echo SITE__PATH; ?>/assets/images/logo.png" alt="logo"/>
+                <a href="<?php echo SITE__PATH; ?>../index.php?type=home"><img src="<?php echo SITE__PATH; ?>../assets/images/logo.png" alt="logo"/>
                 <span>Smart Bank</span></a>
             </div>
             <div class="toggle">
@@ -79,7 +79,8 @@ ini_set('display_errors', 1);
                             </li>
                             <?php  
                                 $euser = $_SESSION['USER_NAME'];
-                                $employee_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE id = '$euser'"));
+                                $employee_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE employe_id = '$euser'"));
+                                //var_dump($employee_id);
                             ?>
                             <li>
                                 <a href="<?php echo SITE__PATH; ?>/pages/New__Employee.php?type=n&id=<?php echo $employee_id['id']?>&option=view">Profile</a>

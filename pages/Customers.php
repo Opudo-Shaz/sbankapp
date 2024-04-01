@@ -20,6 +20,7 @@
        }
    }
 
+
    // Delete functionality
    if (isset($_GET['id']) && $_GET['id'] != "" && isset($_GET['option']) && $_GET['option'] != "") {
        $id = mysqli_real_escape_string($con, $_GET['id']);
@@ -83,7 +84,7 @@
                             <tr>
                                 <th scope="row" class="text-primary"><?php echo $row['account_no']; ?></th>
                                 <th scope="row" class="text-success"><?php echo  $row['id_number']; ?></th>
-                                <td><?php echo $row['acount_balance']?> &#8377;</td>
+                                <td><?php echo "Ksh.".$row['acount_balance']?> </td>
                                 <td><?php echo $row['name']?></td>
                                 <td><?php echo $row['gender']?></td>
                                 <td><?php 
@@ -94,9 +95,13 @@
                                     <a href="All__Transction__History.php?type=n&id=<?php echo $row['account_no']; ?>"><button class="btn btn-primary">Transactions</button></a>
                                 </td>
                                 <td class="d-flex justify-content-around">
-                                    <a href="pages/New__Customer.php?type=n&id=<?php echo $row['account_no']?>&option=view"><i class="far fa-eye text-primary"></i></a>
-                                    <a href="pages/New__Customer.php?type=n&id=<?php echo $row['account_no']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
-                                    <a href="?type=n&id=<?php echo $row['account_no']?>&option=delete"><i class="fas fa-trash text-danger"></i></a>
+                                <a href="New__Customer.php?type=view&account_no=<?php echo $row['account_no']?>"><i class="far fa-eye text-primary"></i></a>
+                                <a href="New__Customer.php?type=edit&account_no=<?php echo $row['account_no']?>"><i class="fas fa-pen text-success"></i></a>
+                                <form method="POST" action="?type=n&id=<?php echo $row['account_no']?>&option=delete">
+                                    <button type="submit" name="delete" value="<?php echo $row['id']; ?>" class="btn btn-danger">
+                                        <i class="fas fa-trash text-danger"></i>
+                                    </button>
+                                </form>
                                 </td>
                             </tr>
                         <?php } ?>

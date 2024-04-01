@@ -105,7 +105,7 @@
                     <input type="text" name="amount" class="form-control" id="inputAddress2" required>
                 </div>
                 <div class="col-12 text-center">
-                    <button type="submit" name="transfer" class="btn btn-primary">Transfered Now</button>
+                    <button type="submit" name="transfer" class="btn btn-primary">Transfer Now</button>
                 </div>
             </form>
         </div>

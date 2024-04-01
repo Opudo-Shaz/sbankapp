@@ -77,7 +77,7 @@
                     <input type="text" name="amount" class="form-control" id="inputAddress2" required>
                 </div>
                 <div class="col-12 text-center">
-                    <button type="submit" name="withdrawal" class="btn btn-primary">Withdrawal Now</button>
+                    <button type="submit" name="withdrawal" class="btn btn-primary">Withdraw Now</button>
                 </div>
             </form>
         </div>
