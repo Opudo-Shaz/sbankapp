@@ -21,7 +21,6 @@ ini_set('display_errors', 1);
     <div class="container-fluid" id="<?php echo $nav_id; ?>">
         <nav class="d-flex">
             <div class="nav__brand">
-                <a href="<?php echo SITE__PATH; ?>../index.php?type=home"><img src="<?php echo SITE__PATH; ?>../assets/images/logo.png" alt="logo"/>
                 <span>Smart Bank</span></a>
             </div>
             <div class="toggle">

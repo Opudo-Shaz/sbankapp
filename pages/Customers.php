@@ -95,11 +95,11 @@
                                     <a href="All__Transction__History.php?type=n&id=<?php echo $row['account_no']; ?>"><button class="btn btn-primary">Transactions</button></a>
                                 </td>
                                 <td class="d-flex justify-content-around">
-                                <a href="New__Customer.php?type=view&account_no=<?php echo $row['account_no']?>"><i class="far fa-eye text-primary"></i></a>
-                                <a href="New__Customer.php?type=edit&account_no=<?php echo $row['account_no']?>"><i class="fas fa-pen text-success"></i></a>
+                                <a href="New__Customer.php?type=n&id=<?php echo $row['account_no']?>&option=view"><i class="far fa-eye text-primary"></i></a>
+                                <a href="New__Customer.php?type=n&id=<?php echo $row['account_no']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
                                 <form method="POST" action="?type=n&id=<?php echo $row['account_no']?>&option=delete">
-                                    <button type="submit" name="delete" value="<?php echo $row['id']; ?>" class="btn btn-danger">
-                                        <i class="fas fa-trash text-danger"></i>
+                                    <button type="submit" name="delete" value="<?php echo $row['id']; ?>" class="btn btn">
+                                        <i class="fas fa-trash "></i>
                                     </button>
                                 </form>
                                 </td>

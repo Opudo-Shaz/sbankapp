@@ -120,9 +120,9 @@ ini_set('display_errors', 1);
                         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                     </div>";
                 }else{
-                    mysqli_query($con,"INSERT  INTO customer (name,gender,birthday,email,phone_no,state,district,city,pin_code,account_no,id_number,acount_balance) VALUES ('$name','$gender',' $birthday','$email','$phone_no','$state','$district','$city','$pin_code','$account_no','id_number','$acount_balance')");
+                    mysqli_query($con,"INSERT  INTO customer (name,gender,birthday,email,phone_no,state,district,city,pin_code,account_no,id_number,acount_balance) VALUES ('$name','$gender',' $birthday','$email','$phone_no','$state','$district','$city','$pin_code','$account_no','$id_number','$acount_balance')");
 
-                    echo "<script>window.location='New__Customer.php?type=n&msg=msg'</script>";
+                    echo "<script>window.location='Customers.php?type=n&msg=msg'</script>";
                 }
             }else{
                 mysqli_query($con,"UPDATE customer SET name='$name',gender='$gender',birthday='$birthday',email='$email',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',account_no='$account_no',id_number='$id_number',acount_balance='$acount_balance' WHERE account_no = '$id'");

@@ -50,9 +50,11 @@
             }
 
             if($option == 'view' || $option == 'edit'){
-                $res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE employe_id = '$employee_id'"));
+                $res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE id = '$id'"));
 
                if ($res !== null) {
+                //$res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employee WHERE employe_id = '$employee_id'"));
+
                 $employee_id	 = $res["employe_id"];
                 $name = $res["name"];
                 $gender = $res["gender"];
@@ -100,6 +102,7 @@
 
     // ========= Send Records Functionality ========
         if(isset($_POST['add_employee'])){
+            //$employee_id = mysqli_escape_string($con,$_POST['employe_id']);
             $name = mysqli_escape_string($con,$_POST['name']);
             $gender = mysqli_escape_string($con,$_POST['gender']);
             $birthday = mysqli_escape_string($con,$_POST['birthday']);
@@ -114,7 +117,7 @@
             $salary = mysqli_escape_string($con,$_POST['salary']);
 
             if($option == ''){
-                mysqli_query($con,"INSERT  INTO employee (id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employee_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
+                mysqli_query($con,"INSERT  INTO employee (employe_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employee_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
 
                 mysqli_query($con,"INSERT INTO users (usename,password,type) VALUES ('$employee_id','$phone_no',1)");
     
@@ -156,7 +159,7 @@
             <form method="post" action="" class="row g-3 mt-2 mb-2">
                 <div class="col-md-4">
                     <label for="inputAddress" class="form-label">Employee Id</label>
-                    <input type="text" disabled value="<?php echo $employee_id; ?>" class="form-control text-primary" id="inputAddress" name="employee_id" required>
+                    <input type="text" class="form-control text-primary" id="inputAddress" name="employee_id" required>
                 </div>
                 <div class="col-md-4">
                     <label for="inputAddress" class="form-label">Designation</label>

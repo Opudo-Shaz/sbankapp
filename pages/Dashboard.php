@@ -60,7 +60,7 @@
                 <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
                     <div class="card-body text-center">
                         <h4 class="card-title text-uppercase text-primary">Total Bank Balance</h4>
-                        <h1 class="card-text text-success"><?php echo  $total['value_sum'];  ?> &#8377;</h1>
+                        <h1 class="card-text text-success"><?php echo "KES " . $total['value_sum'];  ?></h1>
                     </div>
                 </div>
             </div>

@@ -67,15 +67,15 @@
                                 <th scope="row" class="text-primary"><?php echo $row['customer_ac']; ?></th>
                                 <th scope="row" class="text-info"><?php echo  $row['transaction_type']; ?></th>
                                 <th scope="row" class="text-success"><?php echo  $row['transfer_customer_ac']; ?></th>
-                                <td><?php echo $row['amount']?> &#8377;</td>
+                                <td><?php echo "KES " .  $row['amount']?></td>
                                 <td><?php 
                                         $dateStr=strtotime($row['transaction_on']);
                                         echo date('d-m-Y',$dateStr);
                                     ?>
                                 </td>
-                                <td><?php echo $transacton_by['username']; ?></td>
-                                <td class="d-flex justify-content-around">
-                                    <a href="New__Customer.php?type=n&id=<?php echo $row['customer_ac']?>&option=view"><i class="far fa-eye text-primary"></i></a>
+                                <td><?php echo $transacton_by['usename']; ?></td>
+                                <td class="justify-content-center">
+                                    <a href="All__Transction__History.php?type=n&id=<?php echo $row['customer_ac']; ?>"><i class="far fa-eye text-primary"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>
