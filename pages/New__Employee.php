@@ -125,7 +125,7 @@
             }else{
                 mysqli_query($con,"UPDATE employee SET employe_id='$employee_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
 
-                mysqli_query($con,"UPDATE users SET username='$employee_id',password='$phone_no',type='1' WHERE username = '$employee_id'");
+                mysqli_query($con,"UPDATE users SET usename='$employee_id',password='$phone_no',type='1' WHERE username = '$employee_id'");
 
                 echo "<script>window.location='Employees_Detailes.php?type=n&msg=msg'</script>";
             }
